@@ -50,6 +50,7 @@ Ramile automatically loads the config file `.ramileconfig.json` from the project
 | :---------- | :-------------------- |
 | JavaScript  | .js, .jsx, .vue, .wpy |
 | Java        | .java                 |
+| C#          | .cs                   |
 | PHP         | .php                  |
 | HTML        | .html, .htm           |
 | CSS         | .css, .less, .sass    |

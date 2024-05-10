@@ -23,12 +23,16 @@ class FileProcessorBase(object):
     def process(self, file):
         """ Processes a file and extracts lines out of it.
         """
-        with io.open(file.file_path, 'r', encoding='utf-8') as open_file:
-            last_line = None
-            for original_line in open_file:
-                if self.process_line(file, original_line):
-                    yield original_line
-                    last_line = original_line
+        try:
+            with io.open(file.file_path, 'r', encoding='utf-8') as open_file:
+                last_line = None
+                for original_line in open_file:
+                    if self.process_line(file, original_line):
+                        yield original_line
+                        last_line = original_line
+        except Exception as e:
+            print('Error processing file: ' + file.file_path)
+            print(e)
         return
 
     def process_line(self, file, line):
@@ -78,6 +82,7 @@ class FileProcessor(object):
         """
         self.__cache_processor(JsProcessor())
         self.__cache_processor(JavaProcessor())
+        self.__cache_processor(CSharpProcessor())
         self.__cache_processor(PhpProcessor())
         self.__cache_processor(HtmlProcessor())
         self.__cache_processor(CssProcessor())
@@ -100,6 +105,7 @@ from ramile.processors.blank_line_filter import BlankLineFilter
 from ramile.processors.comment_block_filter import CommentBlockFilter
 from ramile.processors.js_processor import JsProcessor
 from ramile.processors.java_processor import JavaProcessor
+from ramile.processors.csharp_processor import CSharpProcessor
 from ramile.processors.php_processor import PhpProcessor
 from ramile.processors.html_processor import HtmlProcessor
 from ramile.processors.css_processor import CssProcessor
