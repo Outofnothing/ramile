@@ -83,6 +83,8 @@ class FileProcessor(object):
         self.__cache_processor(JsProcessor())
         self.__cache_processor(JavaProcessor())
         self.__cache_processor(CSharpProcessor())
+        self.__cache_processor(CppProcessor())
+        self.__cache_processor(DartProcessor())
         self.__cache_processor(PhpProcessor())
         self.__cache_processor(HtmlProcessor())
         self.__cache_processor(CssProcessor())
@@ -106,6 +108,8 @@ from ramile.processors.comment_block_filter import CommentBlockFilter
 from ramile.processors.js_processor import JsProcessor
 from ramile.processors.java_processor import JavaProcessor
 from ramile.processors.csharp_processor import CSharpProcessor
+from ramile.processors.cpp_processor import CppProcessor
+from ramile.processors.dart_processor import DartProcessor
 from ramile.processors.php_processor import PhpProcessor
 from ramile.processors.html_processor import HtmlProcessor
 from ramile.processors.css_processor import CssProcessor
